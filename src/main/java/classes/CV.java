@@ -1,6 +1,7 @@
 package classes;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 /**
  * Created by Emilie on 01/04/14.
@@ -10,12 +11,20 @@ public class CV {
 
     String nom;
     String prenom;
-    Degree degree;
+    List<Degree> degrees;
 
-    public CV(String nom, String prenom, Degree degree) {
+    public CV(String nom, String prenom, List<Degree> degrees) {
         this.nom = nom;
         this.prenom = prenom;
-        this.degree = degree;
+        this.degrees = degrees;
+    }
+
+    public List<Degree> getDegrees() {
+        return degrees;
+    }
+
+    public void setDegrees(List<Degree> degrees) {
+        this.degrees = degrees;
     }
 
     public String getNom() {

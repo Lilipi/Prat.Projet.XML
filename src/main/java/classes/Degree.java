@@ -1,8 +1,11 @@
 package classes;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Emilie on 08/04/14.
  */
+@XmlRootElement(name="degree")
 public class Degree {
 
     //ATTRIBUTS

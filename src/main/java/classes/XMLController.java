@@ -16,12 +16,12 @@ import java.util.List;
 @RequestMapping("/cv")
 public class XMLController {
 
-    @RequestMapping(value="{nom}", method = RequestMethod.GET)
+    /*@RequestMapping(value="{nom}", method = RequestMethod.GET)
     public @ResponseBody
     CV getCVInXML(@PathVariable String nom) {
         CV cv = new CV(nom,"");
         return cv;
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
