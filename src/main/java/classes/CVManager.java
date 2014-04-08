@@ -23,8 +23,9 @@ public class CVManager {
 
     public CVManager() {
         this.resumes = new ArrayList<CV>();
-        resumes.add(new CV("Prat", "Emilie"));
-        resumes.add(new CV("Jouanigot", "Valentin"));
+        Degree d1 = new Degree("Licence Informatique", 2010, 2013, Mention.BIEN, "Rouen", "Université de Rouen", "Licence informatique avec L1 MIEEA");
+        resumes.add(new CV("Prat", "Emilie", d1));
+        resumes.add(new CV("Jouanigot", "Valentin", new Degree()));
     }
 
     public CVManager(List<CV> cv) {

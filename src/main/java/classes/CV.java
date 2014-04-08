@@ -10,10 +10,12 @@ public class CV {
 
     String nom;
     String prenom;
+    Degree degree;
 
-    public CV(String nom, String prenom) {
+    public CV(String nom, String prenom, Degree degree) {
         this.nom = nom;
         this.prenom = prenom;
+        this.degree = degree;
     }
 
     public String getNom() {
