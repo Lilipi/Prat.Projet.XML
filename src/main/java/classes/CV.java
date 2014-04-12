@@ -13,12 +13,32 @@ public class CV {
     String prenom;
     DegreeManager degrees;
     ExperienceManager experiences;
+    SkillManager skills;
+    LanguageManager languages;
 
-    public CV(String nom, String prenom, DegreeManager degrees, ExperienceManager experiences) {
+    public CV(String nom, String prenom, ExperienceManager experiences, SkillManager skills, DegreeManager degrees, LanguageManager languages) {
         this.nom = nom;
         this.prenom = prenom;
-        this.degrees = degrees;
         this.experiences = experiences;
+        this.skills = skills;
+        this.degrees = degrees;
+        this.languages = languages;
+    }
+
+    public SkillManager getSkills() {
+        return skills;
+    }
+
+    public void setSkills(SkillManager skills) {
+        this.skills = skills;
+    }
+
+    public LanguageManager getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(LanguageManager languages) {
+        this.languages = languages;
     }
 
     public DegreeManager getDegrees() {

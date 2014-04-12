@@ -25,7 +25,9 @@ public class CVManager {
         resumes = new ArrayList<CV>();
         DegreeManager degrees = new DegreeManager();
         ExperienceManager experiences = new ExperienceManager();
-        resumes.add(new CV("Prat", "Emilie", degrees, experiences));
+        SkillManager skills = new SkillManager();
+        LanguageManager languages = new LanguageManager();
+        resumes.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
     }
 
     public CVManager(List<CV> cv) {
