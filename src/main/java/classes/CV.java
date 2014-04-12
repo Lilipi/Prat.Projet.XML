@@ -11,19 +11,19 @@ public class CV {
 
     String nom;
     String prenom;
-    List<Degree> degrees;
+    DegreeManager degrees;
 
-    public CV(String nom, String prenom, List<Degree> degrees) {
+    public CV(String nom, String prenom, DegreeManager degrees) {
         this.nom = nom;
         this.prenom = prenom;
         this.degrees = degrees;
     }
 
-    public List<Degree> getDegrees() {
+    public DegreeManager getDegrees() {
         return degrees;
     }
 
-    public void setDegrees(List<Degree> degrees) {
+    public void setDegrees(DegreeManager degrees) {
         this.degrees = degrees;
     }
 

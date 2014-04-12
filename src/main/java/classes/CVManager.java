@@ -11,6 +11,8 @@ import java.util.List;
 @XmlRootElement
 public class CVManager {
 
+    private List<CV> resumes;
+
     public List<CV> getResumes() {
         return resumes;
     }
@@ -19,17 +21,9 @@ public class CVManager {
         this.resumes = resumes;
     }
 
-    private List<CV> resumes;
-
     public CVManager() {
-        this.resumes = new ArrayList<CV>();
-        Degree d1 = new Degree("Licence Informatique", 2010, 2013, Mention.BIEN, "Rouen", "Université de Rouen", "Licence informatique avec L1 MIEEA");
-        Degree d2 = new Degree("BAC S Européenne Espagnol", 2007, 2010, Mention.TB, "Dieppe", "Lycée Jehan Ango", "Spé SVT");
-        List<Degree> degrees = new LinkedList<Degree>();
-        degrees.add(d1);
-        degrees.add(d2);
+        DegreeManager degrees = new DegreeManager();
         resumes.add(new CV("Prat", "Emilie", degrees));
-
     }
 
     public CVManager(List<CV> cv) {
