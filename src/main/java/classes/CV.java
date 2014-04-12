@@ -12,11 +12,13 @@ public class CV {
     String nom;
     String prenom;
     DegreeManager degrees;
+    ExperienceManager experiences;
 
-    public CV(String nom, String prenom, DegreeManager degrees) {
+    public CV(String nom, String prenom, DegreeManager degrees, ExperienceManager experiences) {
         this.nom = nom;
         this.prenom = prenom;
         this.degrees = degrees;
+        this.experiences = experiences;
     }
 
     public DegreeManager getDegrees() {
@@ -25,6 +27,15 @@ public class CV {
 
     public void setDegrees(DegreeManager degrees) {
         this.degrees = degrees;
+    }
+
+
+    public ExperienceManager getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(ExperienceManager experiences) {
+        this.experiences = experiences;
     }
 
     public String getNom() {
