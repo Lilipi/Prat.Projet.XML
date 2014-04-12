@@ -1,5 +1,6 @@
 package classes;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 /**
  * Created by Emilie on 12/04/14.
  */
+@XmlRootElement
 public class DegreeManager {
 
     private List<Degree> degrees;
