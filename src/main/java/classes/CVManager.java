@@ -22,6 +22,7 @@ public class CVManager {
     }
 
     public CVManager() {
+        resumes = new ArrayList<CV>();
         DegreeManager degrees = new DegreeManager();
         resumes.add(new CV("Prat", "Emilie", degrees));
     }
