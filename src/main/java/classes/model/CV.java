@@ -1,7 +1,11 @@
-package classes;
+package classes.model;
+
+import classes.manager.DegreeManager;
+import classes.manager.ExperienceManager;
+import classes.manager.LanguageManager;
+import classes.manager.SkillManager;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
 
 /**
  * Created by Emilie on 01/04/14.

@@ -1,8 +1,9 @@
-package classes;
+package classes.manager;
+
+import classes.model.CV;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

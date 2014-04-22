@@ -1,4 +1,6 @@
-package classes;
+package classes.manager;
+
+import classes.model.Skill;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
