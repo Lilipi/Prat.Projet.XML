@@ -1,11 +1,13 @@
 package classes.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by Emilie on 12/04/14.
  */
 @XmlRootElement(name="language")
+@XmlType(propOrder = {"name", "level" })
 public class Language {
 
     private String name;

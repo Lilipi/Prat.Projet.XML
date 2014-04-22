@@ -6,11 +6,13 @@ import classes.manager.LanguageManager;
 import classes.manager.SkillManager;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by Emilie on 01/04/14.
  */
 @XmlRootElement(name="cv")
+@XmlType(propOrder = {"nom", "prenom", "degrees", "experiences", "skills", "languages" })
 public class CV {
 
     String nom;

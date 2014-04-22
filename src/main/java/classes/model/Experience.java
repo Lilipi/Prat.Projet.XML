@@ -1,11 +1,13 @@
 package classes.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Created by Emilie on 08/04/14.
  */
 @XmlRootElement(name="experience")
+@XmlType(propOrder = {"title","beginMonth", "beginYear", "endMonth", "endYear", "company", "location", "description" })
 public class Experience {
 
     //ATTRIBUTS

@@ -3,6 +3,7 @@ package classes.manager;
 import classes.model.Degree;
 import classes.model.Mention;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,10 @@ import java.util.List;
 /**
  * Created by Emilie on 12/04/14.
  */
-@XmlRootElement
+@XmlRootElement(name="degrees")
 public class DegreeManager {
 
+    @XmlAttribute(name="degree")
     private List<Degree> degrees;
 
     public List<Degree> getDegrees() {

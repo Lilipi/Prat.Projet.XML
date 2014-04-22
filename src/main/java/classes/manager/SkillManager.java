@@ -2,6 +2,7 @@ package classes.manager;
 
 import classes.model.Skill;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,10 @@ import java.util.List;
 /**
  * Created by Emilie on 12/04/14.
  */
-@XmlRootElement
+@XmlRootElement(name="skills")
 public class SkillManager {
 
+    @XmlAttribute(name="skill")
     private List<Skill> skills;
 
     public SkillManager(List<Skill> skills) {
