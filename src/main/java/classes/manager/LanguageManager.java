@@ -13,24 +13,23 @@ import java.util.List;
 @XmlRootElement(name="languages")
 public class LanguageManager {
 
-    @XmlAttribute(name="language")
-    private List<Language> languages;
+    private List<Language> language;
 
-    public LanguageManager(List<Language> languages) {
-        this.languages = languages;
+    public LanguageManager(List<Language> language) {
+        this.language = language;
     }
 
     public LanguageManager() {
-        this.languages = new ArrayList<Language>();
-        this.languages.add(new Language("Français", 5));
+        this.language = new ArrayList<Language>();
+        this.language.add(new Language("Français", 5));
     }
 
-    public List<Language> getLanguages() {
+    public List<Language> getLanguage() {
 
-        return languages;
+        return language;
     }
 
-    public void setLanguages(List<Language> languages) {
-        this.languages = languages;
+    public void setLanguage(List<Language> language) {
+        this.language = language;
     }
 }

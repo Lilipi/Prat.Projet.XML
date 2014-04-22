@@ -13,28 +13,28 @@ import java.util.List;
 @XmlRootElement(name="CVs")
 public class CVManager {
 
-    @XmlAttribute(name="resume")
-    private List<CV> resumes;
 
-    public List<CV> getResumes() {
-        return resumes;
+    private List<CV> resume;
+
+    public List<CV> getResume() {
+        return resume;
     }
 
-    public void setResumes(List<CV> resumes) {
-        this.resumes = resumes;
+    public void setResume(List<CV> resume) {
+        this.resume = resume;
     }
 
     public CVManager() {
-        resumes = new ArrayList<CV>();
+        resume = new ArrayList<CV>();
         DegreeManager degrees = new DegreeManager();
         ExperienceManager experiences = new ExperienceManager();
         SkillManager skills = new SkillManager();
         LanguageManager languages = new LanguageManager();
-        resumes.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
+        resume.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
     }
 
     public CVManager(List<CV> cv) {
-        this.resumes = cv;
+        this.resume = cv;
     }
 
 }

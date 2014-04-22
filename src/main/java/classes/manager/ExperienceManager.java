@@ -13,24 +13,23 @@ import java.util.List;
 @XmlRootElement(name="experiences")
 public class ExperienceManager {
 
-    @XmlAttribute(name="experience")
-    private List<Experience> experiences;
+    private List<Experience> experience;
 
-    public ExperienceManager(List<Experience> experiences) {
-        this.experiences = experiences;
+    public ExperienceManager(List<Experience> experience) {
+        this.experience = experience;
     }
 
     public ExperienceManager() {
-        this.experiences = new ArrayList<Experience>();
+        this.experience = new ArrayList<Experience>();
         Experience exp1 = new Experience("Stage développeur", "Juin", 2013, "Juillet", 2013, "Dieppe", "Mairie de Dieppe", "Développement d'un logiciel de gestion de régies de recettes");
-        this.experiences.add(exp1);
+        this.experience.add(exp1);
     }
 
-    public List<Experience> getExperiences() {
-        return experiences;
+    public List<Experience> getExperience() {
+        return experience;
     }
 
-    public void setExperiences(List<Experience> experiences) {
-        this.experiences = experiences;
+    public void setExperience(List<Experience> experience) {
+        this.experience = experience;
     }
 }

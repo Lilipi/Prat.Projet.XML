@@ -13,24 +13,24 @@ import java.util.List;
 @XmlRootElement(name="skills")
 public class SkillManager {
 
-    @XmlAttribute(name="skill")
-    private List<Skill> skills;
+    public List<Skill> getSkill() {
+        return skill;
+    }
 
-    public SkillManager(List<Skill> skills) {
-        this.skills = skills;
+    public void setSkill(List<Skill> skill) {
+        this.skill = skill;
+    }
+
+    private List<Skill> skill;
+
+    public SkillManager(List<Skill> skill) {
+        this.skill = skill;
     }
 
     public SkillManager() {
-        this.skills = new ArrayList<Skill>();
-        this.skills.add(new Skill("PHP"));
+        this.skill = new ArrayList<Skill>();
+        this.skill.add(new Skill("PHP"));
     }
 
-    public List<Skill> getSkills() {
 
-        return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
 }
