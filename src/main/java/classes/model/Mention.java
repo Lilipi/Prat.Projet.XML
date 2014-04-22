@@ -8,13 +8,9 @@ import javax.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum(String.class)
 public enum Mention {
-    @XmlEnumValue("Passable")
     PASSABLE("Passable"),
-    @XmlEnumValue("Assez bien")
     AB("Assez bien"),
-    @XmlEnumValue("Bien")
     BIEN("Bien"),
-    @XmlEnumValue("Très bien")
     TB("Très bien");
 
 
