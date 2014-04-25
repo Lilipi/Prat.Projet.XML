@@ -31,6 +31,7 @@ public class CVManager {
         SkillManager skills = new SkillManager();
         LanguageManager languages = new LanguageManager();
         resume.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
+        resume.add(new CV("Jouanigot", "Valentin", experiences, skills, degrees, languages));
     }
 
     public CVManager(List<CV> cv) {
