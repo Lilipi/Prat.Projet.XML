@@ -24,6 +24,10 @@ public class CVManager {
         this.resume = resume;
     }
 
+    public CV getResume(int id) {
+        return resume.get(id);
+    }
+
     public CVManager() {
         resume = new ArrayList<CV>();
         DegreeManager degrees = new DegreeManager();

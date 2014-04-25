@@ -1,7 +1,9 @@
 package classes;
 
 import classes.manager.CVManager;
+import classes.model.CV;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,4 +29,10 @@ public class XMLController {
         return manager;
     }
 
+    @RequestMapping(value="{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    CV getCVManagerInXML(@PathVariable int id) {
+        CVManager manager = new CVManager();
+        return manager.getResume(id);
+    }
 }
