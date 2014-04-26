@@ -12,10 +12,11 @@ public class Language {
 
     private String name;
     private int level;
+    private final static int MAX_LEVEL = 20;
 
     public Language(String name, int level) {
         this.name = name;
-        this.level = level;
+        setLevel(level);
     }
 
     public Language() {
@@ -36,6 +37,12 @@ public class Language {
     }
 
     public void setLevel(int level) {
-        this.level = level;
+        if (level < 0) {
+            level = 0;
+        } else if (level > MAX_LEVEL) {
+            level = MAX_LEVEL;
+        } else {
+            this.level = level;
+        }
     }
 }

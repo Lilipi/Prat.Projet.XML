@@ -2,7 +2,6 @@ package classes.manager;
 
 import classes.model.Skill;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,9 @@ public class SkillManager {
 
     public SkillManager() {
         this.skill = new ArrayList<Skill>();
-        this.skill.add(new Skill("PHP"));
+        this.skill.add(new Skill("PHP", 10));
+        this.skill.add(new Skill("Android", -10));
+        this.skill.add(new Skill("SQL", 30));
     }
 
 
