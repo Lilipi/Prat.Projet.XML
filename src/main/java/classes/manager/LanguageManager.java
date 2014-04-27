@@ -22,6 +22,8 @@ public class LanguageManager {
     public LanguageManager() {
         this.language = new ArrayList<Language>();
         this.language.add(new Language("Français", 20));
+        this.language.add(new Language("Espagnol", 10));
+        this.language.add(new Language("Anglais", 15));
     }
 
     public List<Language> getLanguage() {
