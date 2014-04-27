@@ -10,7 +10,7 @@ public class Skill {
 
     private String name;
     private int level;
-    private static final int MAX_LEVEL = 20;
+    public static final int MAX_LEVEL = 20;
 
     public String getName() {
         return name;

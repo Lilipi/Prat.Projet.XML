@@ -12,7 +12,7 @@ public class Language {
 
     private String name;
     private int level;
-    private final static int MAX_LEVEL = 20;
+    public final static int MAX_LEVEL = 20;
 
     public Language(String name, int level) {
         this.name = name;
