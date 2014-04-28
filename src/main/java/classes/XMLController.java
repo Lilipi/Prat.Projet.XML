@@ -19,24 +19,26 @@ public class XMLController {
         return cv;
     }*/
 
+    private CVManager manager  = new CVManager();
+
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     CVManager getCVManagerInXML() {
-        CVManager manager = new CVManager();
+       // CVManager manager = new CVManager();
         return manager;
     }
 
     @RequestMapping(value="{id}", method = RequestMethod.GET)
     public @ResponseBody
     CV getCVManagerInXML(@PathVariable int id) {
-        CVManager manager = new CVManager();
+       // CVManager manager = new CVManager();
         return manager.getResume(id);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     public @ResponseBody
     String putCvInXML(@RequestBody CV cv) {
-        CVManager manager = new CVManager();
+       // CVManager manager = new CVManager();
         manager.addResume(cv);
         return "ok";
     }
