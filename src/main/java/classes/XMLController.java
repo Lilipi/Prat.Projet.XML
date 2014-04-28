@@ -36,7 +36,7 @@ public class XMLController {
         return manager.getResume(id);
     }
 
-    @RequestMapping(value = "put", method = RequestMethod.PUT)
+    @RequestMapping(value = "cv/put", method = RequestMethod.PUT)
     public void putCvInXML(@RequestBody CV cv) {
        // CVManager manager = new CVManager();
         manager.addResume(cv);
