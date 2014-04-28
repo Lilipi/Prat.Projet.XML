@@ -2,6 +2,7 @@ package classes;
 
 import classes.manager.CVManager;
 import classes.model.CV;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,11 +37,9 @@ public class XMLController {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public @ResponseBody
-    String putCvInXML(@RequestBody CV cv) {
+    public void putCvInXML(@RequestBody CV cv) {
        // CVManager manager = new CVManager();
         manager.addResume(cv);
-        return "ok";
     }
 
 }
