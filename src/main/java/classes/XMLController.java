@@ -39,7 +39,10 @@ public class XMLController {
     @RequestMapping(method = RequestMethod.PUT)
     public void putCvInXML(@RequestBody CV cv) {
        // CVManager manager = new CVManager();
-        manager.addResume(cv);
+        CV c = new CV();
+        c.setPrenom(cv.getPrenom());
+        c.setNom(cv.getNom());
+        manager.addResume(c);
     }
 
 }
