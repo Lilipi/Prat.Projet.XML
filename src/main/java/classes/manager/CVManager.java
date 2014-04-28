@@ -20,6 +20,8 @@ public class CVManager {
         return resume;
     }
 
+    public void addResume(CV cv) {resume.add(cv);}
+
     public void setResume(List<CV> resume) {
         this.resume = resume;
     }
