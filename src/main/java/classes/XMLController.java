@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Emilie on 01/04/14.
  */
 @Controller
-@RequestMapping("/cv")
+@RequestMapping
 public class XMLController {
 
     /*@RequestMapping(value="{nom}", method = RequestMethod.GET)
@@ -22,14 +22,14 @@ public class XMLController {
 
     private CVManager manager  = new CVManager();
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/cv", method = RequestMethod.GET)
     public @ResponseBody
     CVManager getCVManagerInXML() {
        // CVManager manager = new CVManager();
         return manager;
     }
 
-    @RequestMapping(value="{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/cv/{id}", method = RequestMethod.GET)
     public @ResponseBody
     CV getCVManagerInXML(@PathVariable int id) {
        // CVManager manager = new CVManager();
