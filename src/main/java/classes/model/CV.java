@@ -29,6 +29,7 @@ public class CV {
         this.skills = skills;
         this.degrees = degrees;
         this.languages = languages;
+
     }
 
     public SkillManager getSkills() {
