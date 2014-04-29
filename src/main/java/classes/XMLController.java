@@ -33,13 +33,13 @@ public class XMLController {
     public @ResponseBody
     CV getCVManagerInXML(@PathVariable int id) {
        // CVManager manager = new CVManager();
-        return manager.getResume(id);
+        return manager.getCv(id);
     }
 
     @RequestMapping(value = "/cv/put", method = RequestMethod.PUT)
     public void putCvInXML(@RequestBody CV cv) {
        // CVManager manager = new CVManager();
-        manager.addResume(cv);
+        manager.addCv(cv);
     }
 
 }

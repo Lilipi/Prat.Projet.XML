@@ -14,34 +14,34 @@ import java.util.List;
 public class CVManager {
 
 
-    private List<CV> resume;
+    private List<CV> cv;//resume;
 
-    public List<CV> getResume() {
-        return resume;
+    public List<CV> getCv() {
+        return cv;
     }
 
-    public void addResume(CV cv) {resume.add(cv);}
+    public void addCv(CV cv) {this.cv.add(cv);}
 
-    public void setResume(List<CV> resume) {
-        this.resume = resume;
+    public void setCv(List<CV> cv) {
+        this.cv = cv;
     }
 
-    public CV getResume(int id) {
-        return resume.get(id);
+    public CV getCv(int id) {
+        return cv.get(id);
     }
 
     public CVManager() {
-        resume = new ArrayList<CV>();
+        cv = new ArrayList<CV>();
         DegreeManager degrees = new DegreeManager();
         ExperienceManager experiences = new ExperienceManager();
         SkillManager skills = new SkillManager();
         LanguageManager languages = new LanguageManager();
-        resume.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
-        resume.add(new CV("Jouanigot", "Valentin", experiences, skills, degrees, languages));
+        cv.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
+        cv.add(new CV("Jouanigot", "Valentin", experiences, skills, degrees, languages));
     }
 
     public CVManager(List<CV> cv) {
-        this.resume = cv;
+        this.cv = cv;
     }
 
 }
