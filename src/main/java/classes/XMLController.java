@@ -1,10 +1,13 @@
 package classes;
 
-import classes.manager.CVManager;
-import classes.model.CV;
+import classes.manager.*;
+import classes.model.*;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Emilie on 01/04/14.
@@ -12,13 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping
 public class XMLController {
-
-    /*@RequestMapping(value="{nom}", method = RequestMethod.GET)
-    public @ResponseBody
-    CV getCVInXML(@PathVariable String nom) {
-        CV cv = new CV(nom,"");
-        return cv;
-    }*/
 
     private CVManager manager  = new CVManager();
 
@@ -37,9 +33,112 @@ public class XMLController {
     }
 
     @RequestMapping(value = "/cv/put", method = RequestMethod.PUT)
-    public void putCvInXML(@RequestBody CV cv) {
-       // CVManager manager = new CVManager();
-        manager.addCv(cv);
+    public @ResponseBody
+    String putCvInXML(@RequestBody CV cv) {
+        return doValidation(cv);
+    }
+
+
+    private String doValidation(CV cv) {
+        String msg = "";
+        boolean res = false;
+
+        if (cv.getNom() == null || cv.getNom().isEmpty()) {
+            res = true;
+            msg += "Le champ Nom est obligatoire.\n";
+        }
+        if (cv.getPrenom() == null || cv.getPrenom().isEmpty()) {
+            res = true;
+            msg += "Le champ Prénom est obligatoire.\n";
+        }
+
+        DegreeManager degrees = cv.getDegrees();
+        for (int i = 0; i < degrees.getDegree().size(); i++) {
+            Degree d = degrees.getDegree().get(i);
+            if (d.getTitle() == null || d.getTitle().isEmpty()) {
+                res = true;
+                msg += "Le champ Titre du diplôme " + i + " est obligatoire.\n";
+            }
+            if (d.getBeginYear() > d.getEndYear()) {
+                res = true;
+                msg += "L'année de début du diplôme " + i + " doit être antérieure à l'année de fin.\n";
+            }
+            if (d.getLocation() == null || d.getLocation().isEmpty()) {
+                res = true;
+                msg += "Le champ Lieu du diplôme " + i + " est obligatoire.\n";
+            }
+            if (d.getSchool() == null || d.getSchool().isEmpty()) {
+                res = true;
+                msg += "Le champ Ecole du diplôme " + i + " est obligatoire.\n";
+            }
+        }
+
+        Map<String, Integer> months = new HashMap<String, Integer>();
+        months.put("En cours",0);
+        months.put("Janvier", 1);
+        months.put("Février", 2);
+        months.put("Mars", 3);
+        months.put("Avril", 4);
+        months.put("Mai", 5);
+        months.put("Juin", 6);
+        months.put("Juillet", 7);
+        months.put("Août", 8);
+        months.put("Septembre", 9);
+        months.put("Octobre", 10);
+        months.put("Novembre", 11);
+        months.put("Décembre", 12);
+
+        ExperienceManager experiences = cv.getExperiences();
+        for (int i = 0; i < experiences.getExperience().size(); i++) {
+            Experience exp = experiences.getExperience().get(i);
+            if (exp.getTitle() == null || exp.getTitle().isEmpty()) {
+                res = true;
+                msg += "Le champ Titre de l'expérience " + i + " est obligatoire.\n";
+            }
+            if (exp.getBeginYear() > exp.getEndYear()) {
+                res = true;
+                msg += "L'année de début de l'expérience " + i + " doit être antérieure à l'année de fin.\n";
+            }
+            if (exp.getBeginYear() == exp.getEndYear()) {
+                if (months.get(exp.getBeginMonth()) > months.get(exp.getEndMonth()) && months.get(exp.getEndMonth()) != 0) {
+                    res = true;
+                    msg += "Le mois de début de l'expérience " + i + " doit être antérieur au mois de fin.\n";
+                }
+            }
+            if (exp.getLocation() == null || exp.getLocation().isEmpty()) {
+                res = true;
+                msg += "Le champ Lieu de l'expérience " + i + " est obligatoire.\n";
+            }
+            if (exp.getCompany() == null || exp.getCompany().isEmpty()) {
+                res = true;
+                msg += "Le champ Entreprise de l'expérience " + i + " est obligatoire.\n";
+            }
+        }
+
+        LanguageManager languages = cv.getLanguages();
+        for (int i = 0; i < languages.getLanguage().size(); i++) {
+            Language l = languages.getLanguage().get(i);
+            if (l.getName() == null || l.getName().isEmpty()) {
+                res = true;
+                msg += "Le champ Titre de la langue " + i + " est obligatoire.\n";
+            }
+        }
+
+        SkillManager skills = cv.getSkills();
+        for (int i = 0; i < skills.getSkill().size(); i++) {
+            Skill skill = skills.getSkill().get(i);
+            if (skill.getName() == null || skill.getName().isEmpty()) {
+                res = true;
+                msg += "Le champ Titre de la compétence " + i + " est obligatoire.\n";
+            }
+        }
+
+        if (res == false ) {
+            manager.addCv(cv);
+            return "Ajout effectué avec succès !";
+        } else {
+            return msg;
+        }
     }
 
 }
