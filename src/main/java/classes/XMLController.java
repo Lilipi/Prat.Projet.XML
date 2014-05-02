@@ -16,6 +16,7 @@ import java.util.Map;
 @RequestMapping
 public class XMLController {
 
+    private final static int MIN_ANNEE = 1900;
     private CVManager manager  = new CVManager();
 
     @RequestMapping(value="/cv", method = RequestMethod.GET)
@@ -43,6 +44,20 @@ public class XMLController {
         String msg = "";
         boolean res = false;
 
+        String formatAnnée = "yy";
+
+        java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( formatAnnée );
+        java.util.Date curAnnee = new java.util.Date();
+
+        int annee = Integer.parseInt(curAnnee.toString());
+
+        String formatMois = "MM";
+
+        java.text.SimpleDateFormat formater2 = new java.text.SimpleDateFormat( formatMois );
+        java.util.Date curMois = new java.util.Date();
+
+        int mois = Integer.parseInt(curMois.toString());
+
         if (cv.getNom() == null || cv.getNom().isEmpty()) {
             res = true;
             msg += "Le champ Nom est obligatoire.\n";
@@ -62,6 +77,16 @@ public class XMLController {
             if (d.getBeginYear() > d.getEndYear()) {
                 res = true;
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être antérieure à l'année de fin.\n";
+            }
+            if (d.getBeginYear() < MIN_ANNEE) {
+                res = true;
+                msg += "L'année de début du diplôme " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
+
+            }
+            if (d.getEndYear() < MIN_ANNEE) {
+                res = true;
+                msg += "L'année de début du diplôme " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
+
             }
             if (d.getLocation() == null || d.getLocation().isEmpty()) {
                 res = true;
@@ -99,12 +124,35 @@ public class XMLController {
                 res = true;
                 msg += "L'année de début de l'expérience " + (i + 1) + " doit être antérieure à l'année de fin.\n";
             }
+            if (exp.getBeginYear() < MIN_ANNEE) {
+                res = true;
+                msg += "L'année de début de l'expérience " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
+
+            }
+            if (exp.getEndYear() < MIN_ANNEE) {
+                res = true;
+                msg += "L'année de fin de l'expérience " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
+
+            }
             if (exp.getBeginYear() == exp.getEndYear()) {
                 if (months.get(exp.getBeginMonth()) > months.get(exp.getEndMonth()) && months.get(exp.getEndMonth()) != 0) {
                     res = true;
                     msg += "Le mois de début de l'expérience " +(i + 1) + " doit être antérieur au mois de fin.\n";
                 }
             }
+            if (exp.getBeginYear() == annee) {
+                if (months.get(exp.getBeginMonth()) > mois) {
+                    res = true;
+                    msg += "Le mois de début de l'expérience " +(i + 1) + " doit être antérieur à la date du jour.\n";
+                }
+            }
+            if (exp.getEndYear() == annee) {
+                if (months.get(exp.getEndMonth()) > mois) {
+                    res = true;
+                    msg += "Le mois de fin de l'expérience " +(i + 1) + " doit être antérieur à la date du jour.\n";
+                }
+            }
+
             if (exp.getLocation() == null || exp.getLocation().isEmpty()) {
                 res = true;
                 msg += "Le champ Lieu de l'expérience " + (i + 1) + " est obligatoire.\n";
