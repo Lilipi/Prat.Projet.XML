@@ -66,8 +66,8 @@ public class XMLController {
                 res = true;
                 msg += "Le champ Titre du diplôme " + (i + 1) + " est obligatoire.\n";
             }
-            if (d.getBeginYear() > d.getEndYear()) {
-                res = true;
+            if (d.getBeginYear() > d.getEndYear() && d.getEndYear() != 0) {
+                    res = true;
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être antérieure à l'année de fin.\n";
             }
             if (d.getBeginYear() < MIN_ANNEE) {
@@ -79,7 +79,7 @@ public class XMLController {
                 res = true;
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être antérieure à l'année en cours.\n";
             }
-            if (d.getEndYear() < MIN_ANNEE) {
+            if (d.getEndYear() < MIN_ANNEE  && d.getEndYear() != 0) {
                 res = true;
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
 
@@ -120,7 +120,7 @@ public class XMLController {
                 res = true;
                 msg += "Le champ Titre de l'expérience " + (i + 1) + " est obligatoire.\n";
             }
-            if (exp.getBeginYear() > exp.getEndYear()) {
+            if (exp.getBeginYear() > exp.getEndYear()  && exp.getEndYear() != 0) {
                 res = true;
                 msg += "L'année de début de l'expérience " + (i + 1) + " doit être antérieure à l'année de fin.\n";
             }
@@ -129,7 +129,7 @@ public class XMLController {
                 msg += "L'année de début de l'expérience " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
 
             }
-            if (exp.getEndYear() < MIN_ANNEE) {
+            if (exp.getEndYear() < MIN_ANNEE  && exp.getEndYear() != 0) {
                 res = true;
                 msg += "L'année de fin de l'expérience " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
 
@@ -145,6 +145,7 @@ public class XMLController {
                     res = true;
                     msg += "Le mois de début de l'expérience " +(i + 1) + " doit être antérieur à la date du jour.\n";
                 }
+
             }
             if (exp.getEndYear() == annee) {
                 if (months.get(exp.getEndMonth()) > mois) {
