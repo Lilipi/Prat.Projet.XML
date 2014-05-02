@@ -27,6 +27,7 @@ public class SkillManager {
     }
 
     public SkillManager() {
+        this.skill = new ArrayList<Skill>();
     }
 
 

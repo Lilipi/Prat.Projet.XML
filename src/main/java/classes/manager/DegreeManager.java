@@ -30,7 +30,6 @@ public class DegreeManager {
 
     public DegreeManager() {
         this.degree = new ArrayList<Degree>();
-        List<Degree> tmp = new ArrayList<Degree>();
     }
 
 

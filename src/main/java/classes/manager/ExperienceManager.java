@@ -21,8 +21,6 @@ public class ExperienceManager {
 
     public ExperienceManager() {
         this.experience = new ArrayList<Experience>();
-        Experience exp1 = new Experience("Stage développeur", "Juin", 2013, "Juillet", 2013, "Dieppe", "Mairie de Dieppe", "Développement d'un logiciel de gestion de régies de recettes");
-        this.experience.add(exp1);
     }
 
     public List<Experience> getExperience() {

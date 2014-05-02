@@ -20,6 +20,7 @@ public class LanguageManager {
     }
 
     public LanguageManager() {
+        this.language = new ArrayList<Language>();
     }
 
     public List<Language> getLanguage() {
