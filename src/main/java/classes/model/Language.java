@@ -11,10 +11,10 @@ import javax.xml.bind.annotation.XmlType;
 public class Language {
 
     private String name;
-    private int level;
+    private float level;
     public final static int MAX_LEVEL = 20;
 
-    public Language(String name, int level) {
+    public Language(String name, float level) {
         this.name = name;
         setLevel(level);
     }
@@ -32,11 +32,11 @@ public class Language {
         this.name = name;
     }
 
-    public int getLevel() {
+    public float getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(float level) {
         if (level < 0) {
             level = 0;
         } else if (level > MAX_LEVEL) {

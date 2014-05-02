@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Skill {
 
     private String name;
-    private int level;
+    private float level;
     public static final int MAX_LEVEL = 20;
 
     public String getName() {
@@ -20,7 +20,7 @@ public class Skill {
         this.name = name;
     }
 
-    public Skill(String name, int level) {
+    public Skill(String name, float level) {
         this.name = name;
         setLevel(level);
     }
@@ -29,11 +29,11 @@ public class Skill {
 
     }
 
-    public int getLevel() {
+    public float getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(float level) {
         if (level < 0) {
             this.level = 0;
         } else if (level > MAX_LEVEL) {
