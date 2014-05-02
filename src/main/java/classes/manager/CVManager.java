@@ -1,6 +1,6 @@
 package classes.manager;
 
-import classes.model.CV;
+import classes.model.*;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,12 +32,29 @@ public class CVManager {
 
     public CVManager() {
         cv = new ArrayList<CV>();
-        DegreeManager degrees = new DegreeManager();
-        ExperienceManager experiences = new ExperienceManager();
-        SkillManager skills = new SkillManager();
-        LanguageManager languages = new LanguageManager();
+
+        List<Degree> tmp = new ArrayList<Degree>();
+        Degree d1 = new Degree("Licence Informatique", 2010, 2013, Mention.BIEN, "Rouen", "Université de Rouen", "Licence informatique avec L1 MIEEA");
+        Degree d2 = new Degree("BAC S Européenne Espagnol", 2007, 2010, Mention.TB, "Dieppe", "Lycée Jehan Ango", "Spé SVT");
+        tmp.add(d1);
+        tmp.add(d2);
+        DegreeManager degrees = new DegreeManager(tmp);
+
+        List<Experience> exp = new ArrayList<Experience>();
+        Experience e = new Experience("Stage développeur Webdev", "Juin", 2013, "Juillet", 2013, "Dieppe", "Mairie", "");
+        exp.add(e);
+        ExperienceManager experiences = new ExperienceManager(exp);
+
+
+        List<Skill> skill = new ArrayList<Skill>();
+        Skill s = new Skill("SQL", 4);
+        SkillManager skills = new SkillManager(skill);
+
+        List<Language> l = new ArrayList<Language>();
+        Language langue = new Language("Français", 5);
+        LanguageManager languages = new LanguageManager(l);
+
         cv.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
-        cv.add(new CV("Jouanigot", "Valentin", experiences, skills, degrees, languages));
     }
 
     public CVManager(List<CV> cv) {

@@ -27,10 +27,6 @@ public class SkillManager {
     }
 
     public SkillManager() {
-        this.skill = new ArrayList<Skill>();
-        this.skill.add(new Skill("PHP", 10));
-        this.skill.add(new Skill("Android", -10));
-        this.skill.add(new Skill("SQL", 30));
     }
 
 
