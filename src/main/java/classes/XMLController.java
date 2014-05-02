@@ -57,19 +57,19 @@ public class XMLController {
             Degree d = degrees.getDegree().get(i);
             if (d.getTitle() == null || d.getTitle().isEmpty()) {
                 res = true;
-                msg += "Le champ Titre du diplôme " + i + " est obligatoire.\n";
+                msg += "Le champ Titre du diplôme " + (i + 1) + " est obligatoire.\n";
             }
             if (d.getBeginYear() > d.getEndYear()) {
                 res = true;
-                msg += "L'année de début du diplôme " + i + " doit être antérieure à l'année de fin.\n";
+                msg += "L'année de début du diplôme " + (i + 1) + " doit être antérieure à l'année de fin.\n";
             }
             if (d.getLocation() == null || d.getLocation().isEmpty()) {
                 res = true;
-                msg += "Le champ Lieu du diplôme " + i + " est obligatoire.\n";
+                msg += "Le champ Lieu du diplôme " +(i + 1) + " est obligatoire.\n";
             }
             if (d.getSchool() == null || d.getSchool().isEmpty()) {
                 res = true;
-                msg += "Le champ Ecole du diplôme " + i + " est obligatoire.\n";
+                msg += "Le champ Ecole du diplôme " + (i + 1) + " est obligatoire.\n";
             }
         }
 
@@ -93,25 +93,25 @@ public class XMLController {
             Experience exp = experiences.getExperience().get(i);
             if (exp.getTitle() == null || exp.getTitle().isEmpty()) {
                 res = true;
-                msg += "Le champ Titre de l'expérience " + i + " est obligatoire.\n";
+                msg += "Le champ Titre de l'expérience " + (i + 1) + " est obligatoire.\n";
             }
             if (exp.getBeginYear() > exp.getEndYear()) {
                 res = true;
-                msg += "L'année de début de l'expérience " + i + " doit être antérieure à l'année de fin.\n";
+                msg += "L'année de début de l'expérience " + (i + 1) + " doit être antérieure à l'année de fin.\n";
             }
             if (exp.getBeginYear() == exp.getEndYear()) {
                 if (months.get(exp.getBeginMonth()) > months.get(exp.getEndMonth()) && months.get(exp.getEndMonth()) != 0) {
                     res = true;
-                    msg += "Le mois de début de l'expérience " + i + " doit être antérieur au mois de fin.\n";
+                    msg += "Le mois de début de l'expérience " +(i + 1) + " doit être antérieur au mois de fin.\n";
                 }
             }
             if (exp.getLocation() == null || exp.getLocation().isEmpty()) {
                 res = true;
-                msg += "Le champ Lieu de l'expérience " + i + " est obligatoire.\n";
+                msg += "Le champ Lieu de l'expérience " + (i + 1) + " est obligatoire.\n";
             }
             if (exp.getCompany() == null || exp.getCompany().isEmpty()) {
                 res = true;
-                msg += "Le champ Entreprise de l'expérience " + i + " est obligatoire.\n";
+                msg += "Le champ Entreprise de l'expérience " + (i + 1) + " est obligatoire.\n";
             }
         }
 
@@ -120,7 +120,7 @@ public class XMLController {
             Language l = languages.getLanguage().get(i);
             if (l.getName() == null || l.getName().isEmpty()) {
                 res = true;
-                msg += "Le champ Titre de la langue " + i + " est obligatoire.\n";
+                msg += "Le champ Titre de la langue " + (i + 1) + " est obligatoire.\n";
             }
         }
 
@@ -129,7 +129,7 @@ public class XMLController {
             Skill skill = skills.getSkill().get(i);
             if (skill.getName() == null || skill.getName().isEmpty()) {
                 res = true;
-                msg += "Le champ Titre de la compétence " + i + " est obligatoire.\n";
+                msg += "Le champ Titre de la compétence " + (i + 1) + " est obligatoire.\n";
             }
         }
 
