@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,19 +45,10 @@ public class XMLController {
         String msg = "";
         boolean res = false;
 
-        String formatAnnée = "yy";
-
-        java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( formatAnnée );
-        java.util.Date curAnnee = new java.util.Date();
-
-        int annee = Integer.parseInt(curAnnee.toString());
-
-        String formatMois = "MM";
-
-        java.text.SimpleDateFormat formater2 = new java.text.SimpleDateFormat( formatMois );
-        java.util.Date curMois = new java.util.Date();
-
-        int mois = Integer.parseInt(curMois.toString());
+        final Calendar c = Calendar.getInstance();
+        int annee = c.get(Calendar.YEAR);
+        int mois = c.get(Calendar.MONTH);
+        mois++;
 
         if (cv.getNom() == null || cv.getNom().isEmpty()) {
             res = true;
@@ -83,10 +75,18 @@ public class XMLController {
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
 
             }
+            if (d.getBeginYear() > annee) {
+                res = true;
+                msg += "L'année de début du diplôme " + (i + 1) + " doit être antérieure à l'année en cours.\n";
+            }
             if (d.getEndYear() < MIN_ANNEE) {
                 res = true;
                 msg += "L'année de début du diplôme " + (i + 1) + " doit être postérieure à " + MIN_ANNEE + ".\n";
 
+            }
+            if (d.getEndYear() > annee) {
+                res = true;
+                msg += "L'année de fin du diplôme " + (i + 1) + " doit être antérieure à l'année en cours ou vide.\n";
             }
             if (d.getLocation() == null || d.getLocation().isEmpty()) {
                 res = true;
