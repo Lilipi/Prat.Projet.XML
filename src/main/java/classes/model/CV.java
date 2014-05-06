@@ -12,9 +12,10 @@ import javax.xml.bind.annotation.XmlType;
  * Created by Emilie on 01/04/14.
  */
 @XmlRootElement(name="cv")
-@XmlType(propOrder = {"nom", "prenom", "degrees", "experiences", "skills", "languages" })
+@XmlType(propOrder = {"id", "nom", "prenom", "degrees", "experiences", "skills", "languages" })
 public class CV {
 
+    int id;
     String nom;
     String prenom;
     DegreeManager degrees;
@@ -29,7 +30,6 @@ public class CV {
         this.skills = skills;
         this.degrees = degrees;
         this.languages = languages;
-
     }
 
     public SkillManager getSkills() {
@@ -82,6 +82,15 @@ public class CV {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public CV() {
 

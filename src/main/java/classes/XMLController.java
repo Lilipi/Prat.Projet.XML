@@ -34,7 +34,7 @@ public class XMLController {
         return manager.getCv(id);
     }
 
-    @RequestMapping(value = "/cv/put", method = RequestMethod.PUT)
+    @RequestMapping(value = "/cv", method = RequestMethod.PUT)
     public @ResponseBody
     String putCvInXML(@RequestBody CV cv) {
         return doValidation(cv);
