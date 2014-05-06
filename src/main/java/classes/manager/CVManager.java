@@ -48,10 +48,12 @@ public class CVManager {
 
         List<Skill> skill = new ArrayList<Skill>();
         Skill s = new Skill("SQL", 4);
+        skill.add(s);
         SkillManager skills = new SkillManager(skill);
 
         List<Language> l = new ArrayList<Language>();
         Language langue = new Language("Français", 5);
+        l.add(langue);
         LanguageManager languages = new LanguageManager(l);
 
         cv.add(new CV("Prat", "Emilie", experiences, skills, degrees, languages));
